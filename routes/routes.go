@@ -9,8 +9,8 @@ import (
 func SetupRoutes(r *gin.Engine) {
 	r.GET("/ping", controllers.Ping)
 
-	// r.POST("/signup", controllers.SignUp)
-	// r.POST("/login", controllers.Login)
+	r.POST("/signup", controllers.SignUp)
+	r.POST("/login", controllers.Login)
 
 	// protected := r.Group("/")
 	// protected.Use(middlewares.AuthMiddleware())

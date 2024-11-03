@@ -6,6 +6,8 @@ import (
 	"log"
 	"os"
 
+	"dating-app/models"
+
 	"github.com/go-redis/redis/v8"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -33,7 +35,7 @@ func ConnectDatabase() {
 	}
 
 	// Migrate the User and Swipe models
-	// DB.AutoMigrate(&models.User{}, &models.Swipe{})
+	DB.AutoMigrate(&models.User{})
 }
 
 func ConnectRedis() {
