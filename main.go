@@ -3,14 +3,20 @@ package main
 import (
 	"dating-app/config"
 	"dating-app/routes"
+	"log"
 
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 func main() {
 	r := gin.Default()
 
-	// Uncomment code below to Initialize the database and Redis connection
+	if err := godotenv.Load(); err != nil {
+		log.Fatal("warning: .env file not found")
+	}
+
+	// Initialize the database and Redis connection
 	config.ConnectDatabase()
 	config.ConnectRedis()
 

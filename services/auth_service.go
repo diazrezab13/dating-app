@@ -33,23 +33,31 @@ func AuthenticateUser(email, password string) (string, error) {
 		return "", errors.New("invalid email or password")
 	}
 
+	status := false
+	if user.Premium {
+		status = true
+	}
+
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"userID": user.ID,
 		"exp":    time.Now().Add(24 * time.Hour).Unix(),
+		"status": status,
 	})
+
 	tokenString, err := token.SignedString(jwtSecret)
 	return tokenString, err
 }
 
-func ValidateToken(tokenString string) (uint, error) {
+func ValidateToken(tokenString string) (uint, bool, error) {
 	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
 		return jwtSecret, nil
 	})
 	if err != nil || !token.Valid {
-		return 0, errors.New("invalid token")
+		return 0, false, errors.New("invalid token")
 	}
 
 	claims := token.Claims.(jwt.MapClaims)
 	userID := uint(claims["userID"].(float64))
-	return userID, nil
+	status := claims["status"].(bool)
+	return userID, status, nil
 }

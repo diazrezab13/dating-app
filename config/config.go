@@ -35,7 +35,7 @@ func ConnectDatabase() {
 	}
 
 	// Migrate the User and Swipe models
-	DB.AutoMigrate(&models.User{})
+	DB.AutoMigrate(&models.User{}, &models.Swipe{})
 }
 
 func ConnectRedis() {
