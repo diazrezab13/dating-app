@@ -3,6 +3,7 @@ package controllers
 import (
 	"bytes"
 	"dating-app/config"
+	"dating-app/middlewares"
 	"encoding/json"
 	"fmt"
 	"math/rand"
@@ -37,8 +38,14 @@ func setupTestRouter() *gin.Engine {
 	gin.SetMode(gin.TestMode)
 	router := gin.Default()
 	config.ConnectDatabase()
+	config.ConnectRedis()
+
 	router.POST("/signup", SignUp)
 	router.POST("/login", Login)
+	router.Use(middlewares.AuthMiddleware())
+	router.GET("/profile", GetProfiles)
+	router.POST("/profile/swipe", Swipe)
+	router.POST("/profile/upgrade", UpgradePremium)
 
 	return router
 }

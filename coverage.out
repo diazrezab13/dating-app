@@ -10,3 +10,16 @@ dating-app/controllers/auth_controller.go:42.2,43.16 2 1
 dating-app/controllers/auth_controller.go:43.16,46.3 2 1
 dating-app/controllers/auth_controller.go:48.2,48.46 1 1
 dating-app/controllers/ping_controller.go:9.27,13.2 1 1
+dating-app/controllers/profile_controller.go:10.34,13.16 3 1
+dating-app/controllers/profile_controller.go:13.16,16.3 2 0
+dating-app/controllers/profile_controller.go:18.2,18.52 1 1
+dating-app/controllers/profile_controller.go:21.28,30.49 4 1
+dating-app/controllers/profile_controller.go:30.49,33.3 2 1
+dating-app/controllers/profile_controller.go:35.2,36.16 2 1
+dating-app/controllers/profile_controller.go:36.16,39.3 2 1
+dating-app/controllers/profile_controller.go:41.2,41.61 1 1
+dating-app/controllers/profile_controller.go:44.37,50.49 2 1
+dating-app/controllers/profile_controller.go:50.49,53.3 2 0
+dating-app/controllers/profile_controller.go:55.2,56.16 2 1
+dating-app/controllers/profile_controller.go:56.16,59.3 2 0
+dating-app/controllers/profile_controller.go:61.2,61.61 1 1
